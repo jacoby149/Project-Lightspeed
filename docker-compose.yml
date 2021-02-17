@@ -3,12 +3,11 @@ version: '3'
 services:
   lightspeed-ingest:
     container_name: lightspeed-ingest
-    image: projectlightspeed/ingest
-#    #Uncomment below to build locally
-#    image: lightspeed-ingest
-#    build:
-#      context: ../Lightspeed-ingest
-#      dockerfile: Dockerfile
+    #Uncomment below to build locally
+    image: lightspeed-ingest
+    build:
+      context: ./Lightspeed-ingest
+      dockerfile: Dockerfile
     env_file: '.env'
     restart: on-failure
     ports:
@@ -16,12 +15,11 @@ services:
   
   lightspeed-react:
     container_name: lightspeed-react
-    image: projectlightspeed/react
-#    #Uncomment below to build locally
-#    image: lightspeed-react
-#    build:
-#      context: ../Lightspeed-react
-#      dockerfile: Dockerfile
+    #Uncomment below to build locally
+    image: lightspeed-react
+    build:
+      context: ./Lightspeed-react
+      dockerfile: Dockerfile
     env_file: '.env'
     restart: on-failure
     ports:
@@ -29,12 +27,11 @@ services:
 
   lightspeed-webrtc:
     container_name: lightspeed-webrtc
-    image: projectlightspeed/webrtc
-#    #Uncomment below to build locally
-#    image: lightspeed-webrtc
-#    build:
-#      context: ../Lightspeed-webrtc
-#      dockerfile: Dockerfile
+    #Uncomment below to build locally
+    image: lightspeed-webrtc
+    build:
+      context: ./Lightspeed-webrtc
+      dockerfile: Dockerfile
     env_file: '.env'
     command: ["lightspeed-webrtc", "--addr=0.0.0.0", "--ip=${WEBSOCKET_HOST}", "--ports=20000-20100", "run"]
     restart: on-failure
